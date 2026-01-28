@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,6 +11,7 @@ body {
   color: #f5efe6;
 }
 
+/* Main container */
 .container {
   min-height: 100vh;
   padding: 24px;
@@ -18,74 +20,10 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.logo {
-  width: 120px;
-  margin-bottom: 24px;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 12px;
-  color: #d4af37;
-}
-
-.description {
-  max-width: 420px;
-  margin-bottom: 24px;
-  line-height: 1.5;
-  color: #e6dccf;
-}
-
-.launch-badge {
-  border: 1px solid #d4af37;
-  padding: 6px 14px;
-  border-radius: 20px;
-  margin-bottom: 24px;
-  font-size: 0.9rem;
-}
-
-.signup {
-  display: flex;
-  gap: 8px;
-  width: 100%;
-  max-width: 360px;
-  margin-bottom: 32px;
-}
-
-.signup input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 4px;
-  border: none;
-}
-
-.signup button {
-  padding: 10px 16px;
-  background: #d4af37;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.socials {
-  display: flex;
   gap: 16px;
-  font-size: 0.9rem;
 }
 
-.socials a {
-  color: #f5efe6;
-  text-decoration: none;
-  opacity: 0.8;
-}
-
-.socials a:hover {
-  opacity: 1;
-}
-
+/* Logo wrapper with hover effect and perfectly centered shadow */
 .logo-wrapper {
   width: 160px;
   height: 160px;
@@ -99,23 +37,141 @@ h1 {
           0 10px 30px rgba(0, 0, 0, 0.5),
           inset 0 0 20px rgba(212, 175, 55, 0.25);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden; /* 🔴 THIS IS THE KEY */
+  align-items: center;       /* vertically center the logo */
+  justify-content: center;   /* horizontally center the logo */
+  overflow: hidden;
   margin-bottom: 28px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+.logo-wrapper:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow:
+          0 15px 40px rgba(0, 0, 0, 0.7),
+          inset 0 0 25px rgba(212, 175, 55, 0.4);
+}
+
+/* Logo image itself */
 .logo {
-  width: 75%;
-  height: 75%;
-  object-fit: cover;
+  width: 80%;                /* fills wrapper better */
+  height: 80%;
+  object-fit: contain;        /* preserve proportions */
   border-radius: 50%;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+  transition: transform 0.3s ease;
 }
 
+/* Tagline */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: #d4af37;
+  transition: color 0.3s ease;
+}
 
+h1:hover {
+  color: #f7e39b;
+}
 
+/* Description text */
+.description {
+  max-width: 420px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  color: #e6dccf;
+  font-size: 1rem;
+}
+
+/* Launch badge with hover effect */
+.launch-badge {
+  border: 1px solid #d4af37;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.launch-badge:hover {
+  background: rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Signup form */
+.signup {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 32px;
+}
+
+.signup input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.signup input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+.signup button {
+  padding: 10px 16px;
+  background: #d4af37;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.signup button:hover {
+  background: #f7e39b;
+  transform: scale(1.05);
+}
+
+/* Social icons */
+.socials {
+  display: flex;
+  gap: 16px;
+  font-size: 0.95rem;
+}
+
+.socials a {
+  color: #f5efe6;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  color: #d4af37;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Responsive typography */
 @media (min-width: 768px) {
   h1 {
     font-size: 2.5rem;
+  }
+  .description {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+  .logo {
+    width: 70%;
+    height: 70%;
   }
 }
