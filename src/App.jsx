@@ -9,7 +9,7 @@ export default function App() {
         <div className="container">
             <div className="logo-wrapper">
                 <img
-                    src="/OIP.webp"
+                    src="./OIP.webp"
                     alt="Chai Culture logo"
                     className="logo"
                 />
